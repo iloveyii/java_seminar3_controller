@@ -3,6 +3,7 @@ package sample;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -15,6 +16,10 @@ public class Main extends Application {
         Controller controller = loader1.getController();
         controller.setList(103);
         controller.setWindowLoader(primaryStage, loader2);
+
+        // Set list view
+
+
 
         primaryStage.setTitle("Register email");
         primaryStage.setScene(new Scene(loader1.load(), 500, 300));
