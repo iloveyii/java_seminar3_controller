@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ControllerMain  {
+public class FirstController {
     public Button btnRegister;
     public TextField txtEmail;
 
@@ -34,7 +34,7 @@ public class ControllerMain  {
             Parent root = (Parent) loader2.load();
 
             // Get controller instances
-            ControllerListView controller2 = loader2.getController();
+            SecondController controller2 = loader2.getController();
             if(controller2 != null)
             controller2.transferMessage(emails, window, scene1);
 

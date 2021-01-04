@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ControllerListView  implements Initializable {
+public class SecondController implements Initializable {
     public Button btnBack;
     public ListView<String> listView;
     public Stage window;

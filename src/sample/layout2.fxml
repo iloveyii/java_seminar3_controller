@@ -3,15 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" minHeight="300.0" minWidth="500.0" prefHeight="380.0" prefWidth="678.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerListView">
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
+<GridPane alignment="center" hgap="10" minHeight="300.0" minWidth="500.0" prefHeight="380.0" prefWidth="678.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SecondController">
 
    <children>
       <Label prefHeight="36.0" prefWidth="240.0" text="List of emails: " GridPane.rowIndex="1">

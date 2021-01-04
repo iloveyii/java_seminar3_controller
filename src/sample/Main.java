@@ -16,7 +16,7 @@ public class Main extends Application {
         FXMLLoader loader1 = new FXMLLoader(getClass().getResource("layout1.fxml"));
 
         // Get controller instances
-        ControllerMain controller1 = loader1.getController();
+        FirstController controller1 = loader1.getController();
 
         // Define two scenes for the two layouts
         Scene scene1 = new Scene(loader1.load(), 500, 300);
