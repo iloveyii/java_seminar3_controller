@@ -8,13 +8,16 @@ import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.List;
 
 public class ControllerMain {
     public Button btnRegister;
     public static int a = 10;
     public static Stage window;
     public static Scene scene2;
-    public static ListView<String> listView;
+    public static ControllerListView controller;
+    public ListView<String> listView;
 
 
     public ControllerMain() {
@@ -23,7 +26,19 @@ public class ControllerMain {
     }
 
     public void btnRegisterClick() throws IOException {
-        System.out.println("Btn clicked" + a);
+
+
+        // listView = new ListView<>();
+        listView.getItems().addAll("AAA", "BBBB", "CCCCC");
+        listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+        System.out.println("Controller Main" );
+        List a = listView.getItems();
+        System.out.println(a);
+
+
+        controller.init(null, null, listView, a);
+
         window.setTitle("Emails list");
         window.setScene(scene2);
         window.show();
@@ -31,14 +46,13 @@ public class ControllerMain {
 
     public static void initializeListView() {
         // List View
-        listView = new ListView<>();
-        listView.getItems().addAll("AAA", "BBBB", "CCCCC");
-        listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
     }
 
-    public static void init(Stage w, Scene s2, ListView lv) {
+    public static void init(Stage w, Scene s2, ListView lv, ControllerListView c) {
         window = w;
         scene2 = s2;
-        listView = lv;
+        // listView = lv;
+        controller = c;
     }
 }

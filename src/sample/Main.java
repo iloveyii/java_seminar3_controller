@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    public static ListView<String> listView;
+    public ListView<String> listView;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -25,8 +25,8 @@ public class Main extends Application {
         Scene scene2 = new Scene(loader2.load(), 500, 300);
 
         // initialize both controllers
-        controller1.init(primaryStage, scene2, listView);
-        controller2.init(primaryStage, scene1, listView);
+        controller1.init(primaryStage, scene2, listView, controller2);
+        controller2.init(primaryStage, scene1, listView, null);
 
         // Show main window - scene1
         primaryStage.setTitle("Register email");
