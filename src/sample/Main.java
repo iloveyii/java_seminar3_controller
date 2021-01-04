@@ -17,7 +17,7 @@ public class Main extends Application {
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource("layout2.fxml"));
 
         // Get controller instances
-        Controller controller1 = loader1.getController();
+        ControllerMain controller1 = loader1.getController();
         ControllerListView controller2 = loader2.getController();
 
         // Define two scenes for the two layouts

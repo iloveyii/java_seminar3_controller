@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Controller {
+public class ControllerMain {
     public Button btnRegister;
     public static int a = 10;
     public static Stage window;
@@ -17,7 +17,7 @@ public class Controller {
     public static ListView<String> listView;
 
 
-    public Controller() {
+    public ControllerMain() {
         System.out.println("hi");
         initializeListView();
     }
