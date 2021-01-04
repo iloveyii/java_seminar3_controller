@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -16,14 +17,23 @@ public class ControllerListView {
     public static Scene scene1;
     public static List b = new ArrayList();
 
-    public static void init(Stage w, Scene s1, ListView lv, List a) {
+    @FXML
+    public void initialize() {
+        System.out.println("second");
+    }
+
+    public static void init(Stage w, Scene s1, ListView lv, List a)  {
 
         window = w;
         scene1 = s1;
         // listView = lv;
         System.out.println("Controller List");
+
         b = a;
         System.out.println(b);
+        // w.setOnShown(e-> System.out.println("Scene shown" + e.toString()));
+
+
 
     }
 
@@ -32,7 +42,11 @@ public class ControllerListView {
         window.setScene(scene1);
         window.show();
         System.out.println("Controller 2"); */
-        btnBack.setText("new");
+
+        for(int i = 0; i < b.size(); i++) {
+            System.out.println(b.get(i));
+            listView.getItems().add(b.get(i).toString());
+        }
         listView.getItems().addAll("a", "bbbb");
         System.out.println(b);
     }
