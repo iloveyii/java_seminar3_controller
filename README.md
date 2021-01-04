@@ -1,7 +1,7 @@
 # JavaFx Assignment
 
 A JavaFx application for registering emails.
-![screenshot](https://raw.githubusercontent.com/iloveyii/javafx/master/screenshot.gif)
+![screenshot](https://github.com/iloveyii/java_seminar3_controller/blob/master/screenshot.gif?raw=true)
 
 ## Description
 
