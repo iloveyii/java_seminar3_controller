@@ -22,7 +22,7 @@ public class Main extends Application {
         Scene scene1 = new Scene(loader1.load(), 500, 300);
 
         // initialize both controllers
-        controller1.init(primaryStage);
+        controller1.init(primaryStage, scene1);
 
         // Show main window - scene1
         primaryStage.setTitle("Register email");
