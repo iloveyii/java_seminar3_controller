@@ -1,18 +1,21 @@
 package sample;
 
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ControllerMain {
+public class ControllerMain implements Initializable {
     public Button btnRegister;
     public TextField txtEmail;
     public static int a = 10;
@@ -22,19 +25,25 @@ public class ControllerMain {
     public ListView<String> listView;
     List emails = new ArrayList();
     public Label lblError;
-
+    FXMLLoader loader2;
 
     public ControllerMain() {
-        System.out.println("hi");
-        initializeListView();
     }
 
-    public void btnRegisterClick() throws IOException {
+    public void btnRegisterClick() throws Exception {
         boolean success = getEmail();
         if(success) {
             lblError.setText("Email added");
             txtEmail.setText("");
-            controller.init(null, null, listView, emails);
+            controller.init(window, scene2, listView, emails);
+
+
+            loader2 = new FXMLLoader(getClass().getResource("layout2.fxml"));
+
+            // Get controller instances
+            ControllerListView controller2 = loader2.getController();
+            if(controller2 != null)
+            controller2.transferMessage(emails);
 
             window.setTitle("Emails list");
             window.setScene(scene2);
@@ -42,11 +51,6 @@ public class ControllerMain {
         } else {
             lblError.setText("Email invalid");
         }
-    }
-
-    public static void initializeListView() {
-        // List View
-
     }
 
     public static void init(Stage w, Scene s2, ListView lv, ControllerListView c) {
@@ -71,6 +75,33 @@ public class ControllerMain {
         }
 
         return false;
+    }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        btnRegister.setOnAction(event -> {
+            loadSceneAndSendMessage();
+        });
+    }
+
+    private void loadSceneAndSendMessage() {
+        try {
+            //Load second scene
+            loader2 = new FXMLLoader(getClass().getResource("layout2.fxml"));
+            //Get controller of scene2
+            ControllerListView scene2Controller = loader2.getController();
+            //Pass whatever data you want. You can have multiple method calls here
+            if(scene2Controller != null) {
+                emails.add("email added before message");
+                scene2Controller.transferMessage(emails);
+            }
+
+            //Show scene 2 in new window
+            window.setScene(new Scene(loader2.load(), 600, 300));
+            window.setTitle("Second Window");
+            window.show();
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
     }
 }

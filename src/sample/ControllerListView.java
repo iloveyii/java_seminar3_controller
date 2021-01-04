@@ -16,10 +16,19 @@ public class ControllerListView {
     public static Stage window;
     public static Scene scene1;
     public static List b = new ArrayList();
+    public List z = new ArrayList();
 
+    /*
     @FXML
     public void initialize() {
-        System.out.println("second");
+        System.out.println("ControllerListView initialized");
+    } */
+
+    public void transferMessage(List message) {
+        System.out.println("Message : " + message.toString());
+        z.add("Message added in controller 2");
+        z = message;
+
     }
 
     public static void init(Stage w, Scene s1, ListView lv, List a)  {
@@ -33,8 +42,8 @@ public class ControllerListView {
         System.out.println(b);
         // w.setOnShown(e-> System.out.println("Scene shown" + e.toString()));
 
-
-
+        if(w != null)
+        System.out.println(w.getScene());
     }
 
     public void btnBackClick() throws IOException {
@@ -47,7 +56,11 @@ public class ControllerListView {
             System.out.println(b.get(i));
             listView.getItems().add(b.get(i).toString());
         }
-        listView.getItems().addAll("a", "bbbb");
+        // listView.getItems().addAll("a", "bbbb");
         System.out.println(b);
+        if(window != null)
+            System.out.println(window.getScene());
+
+        System.out.println("I received message from main" + z.size());
     }
 }
