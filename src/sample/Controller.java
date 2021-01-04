@@ -13,7 +13,7 @@ public class Controller {
     public Button btnRegister;
     public static int a = 10;
     public static Stage window;
-    public static FXMLLoader loader2;
+    public static Scene scene2;
     public static ListView<String> listView;
 
 
@@ -25,7 +25,7 @@ public class Controller {
     public void btnRegisterClick() throws IOException {
         System.out.println("Btn clicked" + a);
         window.setTitle("Emails list");
-        window.setScene(new Scene(loader2.load(), 500, 300));
+        window.setScene(scene2);
         window.show();
     }
 
@@ -36,13 +36,9 @@ public class Controller {
         listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
-    public static void setList(int b) {
-        a = b;
-        System.out.println("Controller " + a);
-    }
-
-    public static void setWindowLoader(Stage w, FXMLLoader l2) {
+    public static void init(Stage w, Scene s2, ListView lv) {
         window = w;
-        loader2 = l2;
+        scene2 = s2;
+        listView = lv;
     }
 }
