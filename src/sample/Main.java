@@ -26,7 +26,7 @@ public class Main extends Application {
 
         // initialize both controllers
         controller1.init(primaryStage, scene2, listView, controller2);
-        // controller2.init(primaryStage, scene1, listView, );
+        controller2.init(primaryStage, scene1, listView, null);
 
 
         // Show main window - scene1

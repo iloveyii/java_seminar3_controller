@@ -1,16 +1,19 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class ControllerListView {
+public class ControllerListView  implements Initializable {
     public Button btnBack;
     public ListView<String> listView;
     public static Stage window;
@@ -62,5 +65,10 @@ public class ControllerListView {
             System.out.println(window.getScene());
 
         System.out.println("I received message from main" + z.size());
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

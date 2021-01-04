@@ -1,7 +1,9 @@
 package sample;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -15,7 +17,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ControllerMain implements Initializable {
+public class ControllerMain  {
     public Button btnRegister;
     public TextField txtEmail;
     public static int a = 10;
@@ -27,9 +29,9 @@ public class ControllerMain implements Initializable {
     public Label lblError;
     FXMLLoader loader2;
 
-    public ControllerMain() {
-    }
 
+
+    @FXML
     public void btnRegisterClick() throws Exception {
         boolean success = getEmail();
         if(success) {
@@ -39,15 +41,21 @@ public class ControllerMain implements Initializable {
 
 
             loader2 = new FXMLLoader(getClass().getResource("layout2.fxml"));
+            Parent root = (Parent) loader2.load();
 
             // Get controller instances
             ControllerListView controller2 = loader2.getController();
             if(controller2 != null)
             controller2.transferMessage(emails);
 
+            Stage s = new Stage();
+            s.setScene(new Scene(root));
+            s.show();
+
+            /*
             window.setTitle("Emails list");
             window.setScene(scene2);
-            window.show();
+            window.show(); */
         } else {
             lblError.setText("Email invalid");
         }
@@ -75,13 +83,6 @@ public class ControllerMain implements Initializable {
         }
 
         return false;
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        btnRegister.setOnAction(event -> {
-            loadSceneAndSendMessage();
-        });
     }
 
     private void loadSceneAndSendMessage() {
