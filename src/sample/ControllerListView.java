@@ -21,17 +21,14 @@ public class ControllerListView  implements Initializable {
     public static List b = new ArrayList();
     public List z = new ArrayList();
 
-    /*
-    @FXML
-    public void initialize() {
-        System.out.println("ControllerListView initialized");
-    } */
 
-    public void transferMessage(List message) {
-        System.out.println("Message : " + message.toString());
-        z.add("Message added in controller 2");
-        z = message;
+    public void transferMessage(List emails) {
+        System.out.println("Message : " + emails.toString());
 
+        for(int i = 0; i < emails.size(); i++) {
+            System.out.println(emails.get(i));
+            listView.getItems().add(emails.get(i).toString());
+        }
     }
 
     public static void init(Stage w, Scene s1, ListView lv, List a)  {

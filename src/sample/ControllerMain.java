@@ -29,8 +29,6 @@ public class ControllerMain  {
     public Label lblError;
     FXMLLoader loader2;
 
-
-
     @FXML
     public void btnRegisterClick() throws Exception {
         boolean success = getEmail();
@@ -48,24 +46,16 @@ public class ControllerMain  {
             if(controller2 != null)
             controller2.transferMessage(emails);
 
-            Stage s = new Stage();
-            s.setScene(new Scene(root));
-            s.show();
-
-            /*
             window.setTitle("Emails list");
-            window.setScene(scene2);
-            window.show(); */
+            window.setScene(new Scene(root));
+            window.show();
         } else {
             lblError.setText("Email invalid");
         }
     }
 
-    public static void init(Stage w, Scene s2, ListView lv, ControllerListView c) {
+    public static void init(Stage w) {
         window = w;
-        scene2 = s2;
-        // listView = lv;
-        controller = c;
     }
 
     private boolean getEmail() {
@@ -81,28 +71,6 @@ public class ControllerMain  {
             emails.add(email);
             return true;
         }
-
         return false;
-    }
-
-    private void loadSceneAndSendMessage() {
-        try {
-            //Load second scene
-            loader2 = new FXMLLoader(getClass().getResource("layout2.fxml"));
-            //Get controller of scene2
-            ControllerListView scene2Controller = loader2.getController();
-            //Pass whatever data you want. You can have multiple method calls here
-            if(scene2Controller != null) {
-                emails.add("email added before message");
-                scene2Controller.transferMessage(emails);
-            }
-
-            //Show scene 2 in new window
-            window.setScene(new Scene(loader2.load(), 600, 300));
-            window.setTitle("Second Window");
-            window.show();
-        } catch (IOException ex) {
-            System.err.println(ex);
-        }
     }
 }
