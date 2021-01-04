@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -28,11 +30,31 @@ public class SecondController implements Initializable {
         scene1 = s1;
     }
 
+    @FXML
     public void btnBackClick() throws Exception {
 
         if(window != null) {
             window.setScene(scene1);
             window.show();
+        }
+    }
+
+    @FXML
+    private void btnRemoveClick() {
+        ObservableList<String> emails;
+        emails = listView.getSelectionModel().getSelectedItems();
+
+        if(emails != null && emails.size() > 0) {
+            try {
+                for(String email : emails) {
+                    System.out.println(email);
+                    if(listView.getItems().contains(email)) {
+                        listView.getItems().remove(email);
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
